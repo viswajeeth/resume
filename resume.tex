@@ -1,10 +1,3 @@
-%-------------------------
-% Resume in Latex
-% Author : Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
-
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
@@ -36,6 +29,9 @@
 \usepackage{charter}
 \renewcommand{\familydefault}{\rmdefault}
 
+% article only allows 10/11/12pt; this sets an intermediate base size
+\usepackage[fontsize=11.5pt]{fontsize}
+
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -44,11 +40,11 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\evensidemargin}{-0.25in}
+\addtolength{\textwidth}{0.5in}
+\addtolength{\topmargin}{-0.3in}
+\addtolength{\textheight}{0.6in}
 
 \urlstyle{same}
 
@@ -60,7 +56,7 @@
 \titleformat{\section}{
   \sffamily\fontseries{sb}\selectfont\raggedright\large
 }{}{0em}{}[\color{black}\titlerule]
-\titlespacing{\section}{0pt}{4pt}{6pt}
+\titlespacing{\section}{0pt}{14pt}{9pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -76,15 +72,16 @@
 }
 
 \newcommand{\resumeCompanyHeading}[2]{
-  \item {\sffamily\fontseries{sb}\selectfont #1} \hfill {\sffamily\fontseries{sb}\selectfont\small #2}
+  \item {\sffamily\fontseries{sb}\fontsize{12.7pt}{15.2pt}\selectfont #1} \hfill {\sffamily\fontseries{sb}\fontsize{11.7pt}{14pt}\selectfont #2}
 }
 
 \newcommand{\resumeRoleHeading}[2]{
-    \textit{#1} \hfill \textit{#2}
+    \textit{\fontseries{sb}\selectfont #1} \hfill \textit{\fontseries{sb}\selectfont #2}
 }
 
+% Education keeps the original heading size/weight
 \newcommand{\resumeSubheading}[4]{
-  \resumeCompanyHeading{#1}{#2}\\
+  \item {\sffamily\fontseries{sb}\selectfont #1} \hfill {\sffamily\fontseries{sb}\selectfont\small #2}\\
   \resumeRoleHeading{#3}{#4}
 }
 
@@ -98,12 +95,16 @@
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
 
+\newcommand{\resumeNonBulletItem}[1]{
+  \par\vspace{4pt}{\leftskip=0.15in\small{#1}\par}
+}
+
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=2pt, parsep=0pt, topsep=0pt, partopsep=0pt]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=7pt, parsep=2pt, topsep=3pt, partopsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt, parsep=0pt, topsep=2pt, partopsep=0pt]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=5pt, parsep=3pt, topsep=5pt, partopsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}}
 
 %-------------------------------------------
@@ -119,117 +120,85 @@
 % \end{tabular*}
 
 \begin{center}
-    {\Huge \sffamily\fontseries{sb}\selectfont First Last} \\ \vspace{1pt}
-    123 Street Name, Town, State 12345 \\ \vspace{1pt}
-    \small \raisebox{-0.1\height}\faPhone\ 123-456-7890 ~ \href{mailto:x@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{email@gmail.com}} ~ 
-    \href{https://linkedin.com/in//}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/username}}  ~
-    \href{https://github.com/}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/username}}
+    {\Huge \sffamily\fontseries{sb}\selectfont Viswajeeth M} \\ \vspace{3pt}
+    Hyderabad, India \\ \vspace{3pt}
+    \small \raisebox{-0.1\height}\faPhone\ +91 7259666637 ~ \href{mailto:viswajeeth2020@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{viswajeeth2020@gmail.com}} ~
+    \href{https://www.linkedin.com/in/viswajeeth/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/viswajeeth}}
 \end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Engineering Manager with 13 years of experience architecting hyperscale data platforms and 6 years of experience as an engineering leader. Established the Microsoft AI India Data Engineering charter from 0 to 1, now a team of 8 owning a 300 PB telemetry lakehouse and 240,000-core compute footprint for Copilot, Bing, and MSN. Drove the charter to an AI-native development model reaching 60\% fully AI-generated Pull Requests. Now leading the AI-transition strategy across data teams in the Microsoft AI organization after direct recognition from the VP of Engineering.}
+
+%-----------CORE TECHNOLOGIES & SKILLS-----------
+\section{Core Technologies \& Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Distributed Data Systems}{: Apache (Spark, Flink, Kafka, HDFS, Airflow), Delta Lake, Dagster} \\
+     \textbf{Cloud \& Platform}{: Azure (AKS, Data Factory, Data Lake, Entra ID), Kubernetes, C\#, .NET, GraphQL} \\
+     \textbf{AI/ML Infrastructure}{: Responsible AI, Threat intelligence, ANN, Vector Search, Embeddings, NLU} \\
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+  
+    \resumeCompanyHeading
+      {Microsoft, Hyderabad}{9 Years}\\
+    \resumeRoleHeading{Engineering Manager -- Data Platform \& Telemetry}{Aug 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{Established the Data Platform and Telemetry charter in India and grew the team from 4 to 8 engineers. Took engineers new to data engineering to full ownership of a 300 PB telemetry footprint and a 240,000-core compute cluster that backs Copilot, Bing, and MSN data assets.}
+        \resumeItem{Led a ground-up migration from Azure Analytics to a modern lakehouse stack (Spark, Flink, Kafka, HDFS) and retired a proprietary query language that AI agents could not parse. Introduced columnar storage (Zstandard, Delta encoding) and liquid clustering, cutting storage costs from \$7.2M to \$1.9M per year and latency by up to 25\%.}
+        \resumeItem{Identified Dagster OSS as apt orchestration platform for use with AI Agents. Deployed it on AKS with Azure Entra Auth, and built a centralized, schema-aware graph view of all data pipelines. Drove its adoption beyond my team to replace fragmented per-team orchestration. It is now the standard across Bing and MSN.}
+        \resumeItem{Built a GraphQL Model Context Protocol (MCP) on Dagster, exposing end-to-end pipeline state so AI models can read and modify complex data flows. Led the shift in team development habits to reach and sustain 60\% fully AI-generated Pull Requests. Subsequently asked to lead the AI-transition strategy across data teams in the Microsoft AI organization.}
+        \resumeItem{\textit{Privacy:} Architected a centralized GDPR compliance platform that integrates with Microsoft's user data deletion request pipeline and replaces redundant per-team implementations. Teams register datasets and PII column mappings through a self-serve portal. The platform then fans out row-level deletions across their assets and returns an audit record within the regulatory SLA. Adopted by 50+ teams across the Microsoft AI organization.}
+        \resumeItem{\textit{Data Security:} Delivered a platform to enforce EO 14117 controls across the telemetry estate. It pairs column-level data classification with dataset lineage to detect bulk sensitive personal data and flag exposure to restricted jurisdictions, then routes remediation to the owning teams.}
+        \resumeItem{\textit{Team Health and Culture:} Achieved a 94\% manager effectiveness score (MSFT signals) based on anonymous bottom-up feedback from a team of 8 engineers.}
+      \resumeItemListEnd
+
+    \newpage
+    \resumeRoleHeading{Senior Software Engineer (Tech Lead) -- Responsible AI \& Threat Intelligence}{Jan 2021 -- Aug 2024} 
+      \resumeNonBulletItem{Started the Threat Intelligence charter from scratch within the Responsible AI (RAI) org and grew it into a 3-engineer team. Set direction and owned day-to-day execution.}
+
+      \vspace{5pt}
+      \hspace{0.15in}\small\textit{Threat Intelligence for Copilot and Bing}
+      \resumeItemListStart
+        \resumeItem{Designed the platform that identifies emerging threats pre-trained models cannot detect. Proposed a novel method combining a dynamic set of known threat n-grams and embeddings to find overlaps across trending topics on Twitter and the Bing Web Index.}
+        \resumeItem{Validated the detection and retrieval approach with a ``Reality Check'' Edge plugin that won the MSFT Global Hackathon and earned recognition from the Microsoft AI Executive VP.}
+        \resumeItem{Led productionization across Copilot and Bing with an SLA-tailored approach. For Copilot, ANN retrieval feeds matching claims into a meta-prompt. For Bing, a high-throughput ANN gateway (15K QPS, 30ms P99) suppresses high-risk responses. Reduced the leakage gap against Bing's competitors by 8 pts as measured by the red team.}
+        \resumeItem{Partnered with the safety operations team to scope and deliver a unified Streamlit dashboard that pulls the new intelligence pipeline together with paid feeds (NewsGuard, Factal), so analysts could triage and ingest threats into production. Drove a 60\% increase in total validated threats detected and ingested.}
+      \resumeItemListEnd
+
+      \hspace{0.15in}\small\textit{High-Throughput Pipelines \& Optimization}
+      \resumeItemListStart
+        \resumeItem{Led delivery of a self-serve batch Responsible AI labeling platform that processes over 5 billion phrases daily for 35+ teams. Led the effort to move inference out of GPUs to ONNX on surplus CPU capacity to unblock the team during a global GPU shortage.}
+        \resumeItem{Engineered the Content Moderation API for Bing Autosuggest, called on every user keystroke across the Bing and Edge search boxes. Deployed a FastText model cached in memory, serving a peak load of 35K QPS at 4ms P99 latency.}
+        \resumeItem{Drove preemptive execution of RAI models on the Bing stack, eliminating incremental compute cost per partner and expanding the online partner base from 5 to over 30.}
+      \resumeItemListEnd
+
+    \resumeRoleHeading{Software Engineer 2 -- Bing Rewards \& Growth}{Jun 2017 -- Jan 2021} 
+      \resumeItemListStart
+        \resumeItem{Developed the full-page landing experience connecting Windows Spotlight Lockscreen to Bing, engaging 12 million users daily. Labeled and categorized high-resolution images by location, theme, and topic to power a hierarchical carousel with \textasciitilde850,000 daily interactions. Built a model to extract location coordinates from image descriptions, which powered contextual flight and hotel price links that generate \textasciitilde\$800K in monthly revenue.}
+        \resumeItem{Engineered a content management system to streamline editorial content across Bing Home Page, Windows Lockscreen landing, Microsoft Rewards, and the ``On This Day'' experience. These surfaces collectively drive \textasciitilde16 million daily impressions. Used crowdsourced human-in-the-loop workflows to scale content generation.}
+      \resumeItemListEnd
+
+    \resumeCompanyHeading
+      {Samsung Research Institute, Bangalore}{3 Years}\\
+    \resumeRoleHeading{Software Engineer -- Bixby AI Assistant}{Jul 2014 -- Jun 2017}
+      \resumeItemListStart
+        \resumeItem{Selected for a core 5-member incubation squad that traveled to Korea to draft the initial architectural design for Bixby Agent. Primary inventor on a patent (6531/CHE/2015) that decomposes voice commands into actionable sub-instructions using NLU, so a single command can orchestrate multiple applications. Demonstrated the POC to the SVP and Head of AI at Samsung Korea.}
+      \resumeItemListEnd    
+  \resumeSubHeadingListEnd
 
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {State University}{Sep. 2017 -- May 2021}
-      {Bachelor of Science in Computer Science}{City, State}
+      {SRM University, Chennai}{Aug 2010 -- Jun 2014}
+      {B.Tech. in Computer Science (First Class with Distinction), GPA: 8.82/10}{}
   \resumeSubHeadingListEnd
-
-%------RELEVANT COURSEWORK-------
-\section{Relevant Coursework}
-    %\resumeSubHeadingListStart
-        \begin{multicols}{4}
-            \begin{itemize}[itemsep=-5pt, parsep=3pt]
-                \item\small Data Structures
-                \item Software Methodology
-                \item Algorithms Analysis
-                \item Database Management
-                \item Artificial Intelligence
-                \item Internet Technology
-                \item Systems Programming
-                \item Computer Architecture
-            \end{itemize}
-        \end{multicols}
-    %\resumeSubHeadingListEnd
-
-
-%-----------EXPERIENCE-----------
-\section{Experience}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Electronics Company}{May 2020 -- August 2020}
-      {Software Engineer Intern}{City, State}
-      \resumeItemListStart
-        \resumeItem{Developed a service to automatically perform a set of unit tests daily on a product in development in order to decrease time needed for team members to identify and fix bugs/issues.}
-        \resumeItem{Incorporated scripts using Python and PowerShell to aggregate XML test results into an organized format and to load the latest build code onto the hardware, so that daily testing can be performed.}
-        \resumeItem{Utilized Jenkins to provide a continuous integration service in order to automate the entire process of loading the latest build code and test files, running the tests, and generating a report of the results once per day.}
-        \resumeItem{Explored ways to visualize and send a daily report of test results to team members  using HTML, Javascript, and CSS.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Startup, Inc}{May 2019 -- August 2019}
-      {Front End Developer Intern}{City, State}
-      \resumeItemListStart
-        \resumeItem{Assisted in development of the front end of a mobile application for iOS/Android using Dart and the Flutter framework.}
-        \resumeItem{Worked with Google Firebase to manage user inputted data across multiple platforms including web and mobile apps.}
-        \resumeItem{Collaborated with team members using version control systems such as Git to organize modifications and assign tasks.}
-        \resumeItem{Utilized Android Studio as a development environment in order to visualize the application in both iOS and Android.}
-    \resumeItemListEnd
-    
-  \resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------
-\section{Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{Gym Reservation Bot} $|$ \emph{Python, Selenium, Google Cloud Console}}{January 2021}
-          \resumeItemListStart
-            \resumeItem{Developed an automatic bot using Python and Google Cloud Console to register myself for a timeslot at my school gym.}
-            \resumeItem{Implemented Selenium to create an instance of Chrome in order to interact with the correct elements of the web page.}
-            \resumeItem{Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.}
-            \resumeItem{Used Cron to schedule the program to execute automatically at 11 AM every morning so a reservation is made for me.}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Ticket Price Calculator App} $|$ \emph{Java, Android Studio}}{November 2020}
-          \resumeItemListStart
-            \resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
-            \resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
-            \resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
-          \resumeItemListEnd 
-          \resumeProjectHeading
-          {\textbf{Transaction Management GUI} $|$ \emph{Java, Eclipse, JavaFX}}{October 2020}
-          \resumeItemListStart
-            \resumeItem{Designed a sample banking transaction system using Java to simulate the common functions of using a bank account.}
-            \resumeItem{Used JavaFX to create a GUI that supports actions such as creating an account, deposit, withdraw, list all acounts, etc.}
-            \resumeItem{Implemented object-oriented programming practices such as inheritance to create different account types and databases.}
-          \resumeItemListEnd 
-    \resumeSubHeadingListEnd
-
-
-%
-%-----------PROGRAMMING SKILLS-----------
-\section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Languages}{: Python, Java, C, HTML/CSS, JavaScript, SQL} \\
-     \textbf{Developer Tools}{: VS Code, Eclipse, Google Cloud Platform, Android Studio} \\
-     \textbf{Technologies/Frameworks}{: Linux, Jenkins, GitHub, JUnit, WordPress} \\
-    }}
- \end{itemize}
-
-
-%-----------INVOLVEMENT---------------
-\section{Leadership / Extracurricular}
-    \resumeSubHeadingListStart
-        \resumeSubheading{Fraternity}{Spring 2020 -- Present}{President}{University Name}
-            \resumeItemListStart
-                \resumeItem{Achieved a 4 star fraternity ranking by the Office of Fraternity and Sorority Affairs (highest possible ranking).}
-                \resumeItem{Managed executive board of 5 members and ran weekly meetings to oversee progress in essential parts of the chapter.}
-                \resumeItem{Led chapter of 30+ members to work towards goals that improve and promote community service, academics, and unity.}
-            \resumeItemListEnd
-        
-    \resumeSubHeadingListEnd
 
 
 \end{document}
